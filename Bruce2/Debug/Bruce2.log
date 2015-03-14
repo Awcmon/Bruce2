@@ -1,11 +1,22 @@
-﻿Build started 3/14/2015 12:45:39 AM.
-     1>Project "E:\ADDevZone\VisualStudioProjects\Bruce2\Bruce2\Bruce2.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         E:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.lib" /MACHINE:X86 Debug\main.obj
+﻿Build started 3/14/2015 2:20:56 AM.
+     1>Project "E:\ADDevZone\VisualStudioProjects\Bruce2\Bruce2\Bruce2.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         E:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AMouse.cpp AwcUtility.cpp AwcVector2D.cpp main.cpp
+         main.cpp
+         AwcVector2D.cpp
+         AwcUtility.cpp
+     1>e:\addevzone\visualstudioprojects\bruce2\bruce2\awcutility.cpp(50): warning C4305: 'return' : truncation from 'double' to 'float'
+         AMouse.cpp
+         Generating Code...
+       Link:
+         E:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.lib" /MACHINE:X86 Debug\AMouse.obj
+         Debug\AwcUtility.obj
+         Debug\AwcVector2D.obj
+         Debug\main.obj
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          Bruce2.vcxproj -> E:\ADDevZone\VisualStudioProjects\Bruce2\Debug\Bruce2.exe
-     1>Done Building Project "E:\ADDevZone\VisualStudioProjects\Bruce2\Bruce2\Bruce2.vcxproj" (Build target(s)).
+     1>Done Building Project "E:\ADDevZone\VisualStudioProjects\Bruce2\Bruce2\Bruce2.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.94
+Time Elapsed 00:00:03.45
