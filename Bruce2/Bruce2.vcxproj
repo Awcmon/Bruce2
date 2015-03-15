@@ -70,14 +70,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AMouse.cpp" />
+    <ClCompile Include="ATexture.cpp" />
+    <ClCompile Include="AwcColor.cpp" />
     <ClCompile Include="AwcUtility.cpp" />
     <ClCompile Include="AwcVector2D.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AMouse.h" />
+    <ClInclude Include="ATexture.h" />
+    <ClInclude Include="AwcColor.h" />
     <ClInclude Include="AwcUtility.h" />
     <ClInclude Include="AwcVector2D.h" />
+    <ClInclude Include="Command.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
