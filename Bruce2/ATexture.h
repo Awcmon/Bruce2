@@ -9,10 +9,10 @@ class ATexture
 {
 	public:
 	ATexture();
-	ATexture(std::string path, Color colorkey = Color(255, 255, 0));
+	ATexture(std::string path, Color colorkey = Color(255, 0, 255));
 	~ATexture();
 
-	bool load(std::string path, Color colorkey = Color(255, 255, 0));
+	bool load(std::string path, Color colorkey = Color(255, 0, 255));
 	void free();
 
 	void setColor(Uint8 r, Uint8 g, Uint8 b);

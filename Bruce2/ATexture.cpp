@@ -1,5 +1,6 @@
 #include "ATexture.h"
 
+extern SDL_Renderer *gRenderer;
 
 ATexture::ATexture()
 {
@@ -8,7 +9,7 @@ ATexture::ATexture()
 	height = 0;
 }
 
-ATexture::ATexture(std::string path, Color colorkey = Color(255, 0, 255))
+ATexture::ATexture(std::string path, Color colorkey)
 {
 	mTexture = NULL;
 	width = 0;
@@ -22,7 +23,7 @@ ATexture::~ATexture()
 	free();
 }
 
-bool ATexture::load(std::string path, Color colorkey = Color(255, 0, 255) )
+bool ATexture::load(std::string path, Color colorkey)
 {
 	free();
 
@@ -31,10 +32,25 @@ bool ATexture::load(std::string path, Color colorkey = Color(255, 0, 255) )
 	//Load image
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 
-	SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, (Uint8)colorkey.r, (Uint8)colorkey.g, (Uint8)colorkey.b) );
+	if (loadedSurface == NULL)
+	{
+		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+	}
+	else
+	{
+		width = loadedSurface->w;
+		height = loadedSurface->h;
 
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, (Uint8)colorkey.r, (Uint8)colorkey.g, (Uint8)colorkey.b));
 
+		texture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
 
+		SDL_FreeSurface(loadedSurface);
+
+		mTexture = texture;
+	}
+
+	return mTexture != NULL;
 }
 
 void ATexture::free()

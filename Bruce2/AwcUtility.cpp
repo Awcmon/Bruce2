@@ -45,6 +45,19 @@ float Clamp( float Value, float Min, float Max)
     return Value;
 }
 
+int Clamp(int Value, int Min, int Max)
+{
+	if (Value > Max)
+	{
+		Value = Max;
+	}
+	else if (Value < Min)
+	{
+		Value = Min;
+	}
+	return Value;
+}
+
 float Pi()
 {
 	return 3.14159265358979323846;

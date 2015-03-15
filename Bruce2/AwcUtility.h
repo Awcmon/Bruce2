@@ -8,6 +8,7 @@
 
 float Approach( float Value, float Target, float Increment );
 float Clamp( float Value, float Min, float Max);
+int Clamp(int Value, int Min, int Max);
 float Pi();
 float Deg2Rad(float Value);
 float Rad2Deg(float Value);
