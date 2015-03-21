@@ -7,3 +7,7 @@
 
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
+
+extern enum Gamestates;
+extern int Gamestate;
+extern int nextGamestate;

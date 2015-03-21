@@ -8,6 +8,7 @@
 #include "Globals.h"
 #include "AwcUtility.h"
 #include "AWindow.h"
+#include "Configor.h"
 
 int SCREEN_WIDTH = 640;
 int SCREEN_HEIGHT = 480;
@@ -15,15 +16,32 @@ int SCREEN_HEIGHT = 480;
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 
+enum Gamestates
+{
+	STATE_NULL,
+	STATE_EXIT,
+	STATE_TITLE,
+	STATE_MENU,
+	STATE_GAME
+};
+
+int nextGamestate = STATE_NULL;
+int Gamestate = STATE_NULL;
+
 int main(int argc, char* args[])
 {
-	AWindow window;
+	CConfigor cfg;
+	cfg.LoadFromFile("config.cfg");
 
+	SCREEN_WIDTH = cfg["Window Information"]["Width"].GetValue<int>(0);
+	SCREEN_HEIGHT = cfg["Window Information"]["Height"].GetValue<int>(0);
+
+	AWindow window;
 	SDL_Event e;
 
-	bool quit = false;
+	Gamestate = STATE_MENU;
 
-	while (!quit)
+	while (Gamestate != STATE_EXIT)
 	{
 		int start = SDL_GetTicks();
 
@@ -31,7 +49,7 @@ int main(int argc, char* args[])
 		{
 			if (e.type == SDL_QUIT)
 			{
-				quit = true;
+				Gamestate = STATE_EXIT;
 			}
 		}
 
@@ -63,7 +81,7 @@ int main(int argc, char* args[])
 		SDL_RenderPresent(gRenderer);
 
 		//Cap to 60 fps
-		if (!quit)
+		if (Gamestate != STATE_EXIT)
 		{
 //			int delay = Clamp(start + MS_PER_FRAME - SDL_GetTicks(), 0, MS_PER_FRAME);
 			SDL_Delay(Clamp(start + MS_PER_FRAME - SDL_GetTicks(), 0, MS_PER_FRAME));

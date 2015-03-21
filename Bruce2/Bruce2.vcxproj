@@ -81,6 +81,7 @@
     <ClCompile Include="AwcUtility.cpp" />
     <ClCompile Include="AwcVector2D.cpp" />
     <ClCompile Include="AWindow.cpp" />
+    <ClCompile Include="Configor.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -92,6 +93,7 @@
     <ClInclude Include="AwcVector2D.h" />
     <ClInclude Include="AWindow.h" />
     <ClInclude Include="Command.h" />
+    <ClInclude Include="Configor.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="InputHandler.h" />
   </ItemGroup>
