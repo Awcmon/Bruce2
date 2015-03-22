@@ -42,6 +42,12 @@
     <ClCompile Include="Configor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AMouse.h">
@@ -72,6 +78,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Configor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

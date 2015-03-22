@@ -9,6 +9,7 @@
 #include "AwcUtility.h"
 #include "AWindow.h"
 #include "Configor.h"
+#include "EntityFactory.h"
 
 int SCREEN_WIDTH = 640;
 int SCREEN_HEIGHT = 480;
@@ -23,6 +24,17 @@ enum Gamestates
 	STATE_TITLE,
 	STATE_MENU,
 	STATE_GAME
+};
+
+enum RenderLayer
+{
+	LAYER_FG0,
+	LAYER_FG1,
+	LAYER_FG2,
+	LAYER_FG3,
+	LAYER_BG0,
+	LAYER_BG1,
+	LAYER_BG3
 };
 
 int nextGamestate = STATE_NULL;
@@ -40,6 +52,7 @@ int main(int argc, char* args[])
 	SDL_Event e;
 
 	Gamestate = STATE_MENU;
+	EntityFactory ents;
 
 	while (Gamestate != STATE_EXIT)
 	{

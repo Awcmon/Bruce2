@@ -82,8 +82,10 @@
     <ClCompile Include="AwcVector2D.cpp" />
     <ClCompile Include="AWindow.cpp" />
     <ClCompile Include="Configor.cpp" />
+    <ClCompile Include="CSprite.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Observer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AMouse.h" />
@@ -93,9 +95,14 @@
     <ClInclude Include="AwcVector2D.h" />
     <ClInclude Include="AWindow.h" />
     <ClInclude Include="Command.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Configor.h" />
+    <ClInclude Include="CSprite.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Observer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

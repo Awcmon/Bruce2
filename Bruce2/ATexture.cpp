@@ -1,6 +1,6 @@
 #include "ATexture.h"
 
-extern SDL_Renderer *gRenderer;
+extern SDL_Renderer* gRenderer;
 
 ATexture::ATexture()
 {
@@ -64,6 +64,11 @@ void ATexture::free()
 	}
 }
 
+SDL_Texture* ATexture::getTexture()
+{
+	return mTexture;
+}
+
 void ATexture::setColor(Uint8 r, Uint8 g, Uint8 b)
 {
 	SDL_SetTextureColorMod(mTexture, r, g, b);
@@ -77,4 +82,20 @@ void ATexture::setBlendMode(SDL_BlendMode blendmode)
 void ATexture::setAlpha(Uint8 alpha)
 {
 	SDL_SetTextureAlphaMod(mTexture, alpha);
+}
+
+void ATexture::render(int x, int y, double angle, SDL_Point* center, SDL_Rect* clip, SDL_RendererFlip flip)
+{
+	//Set rendering space and render to screen
+	SDL_Rect renderQuad = { x, y, width, height };
+
+	//Set clip rendering dimensions
+	if (clip != NULL)
+	{
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+
+	//Render to screen
+	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip);
 }
