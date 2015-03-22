@@ -28,7 +28,7 @@ bool ATexture::load(std::string path, Color colorkey)
 	free();
 
 	//Final texture
-	SDL_Texture* texture = NULL;
+	SDL_Texture* newTexture = NULL;
 	//Load image
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 
@@ -43,13 +43,12 @@ bool ATexture::load(std::string path, Color colorkey)
 
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, (Uint8)colorkey.r, (Uint8)colorkey.g, (Uint8)colorkey.b));
 
-		texture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
 
 		SDL_FreeSurface(loadedSurface);
-
-		mTexture = texture;
 	}
 
+	mTexture = newTexture;
 	return mTexture != NULL;
 }
 

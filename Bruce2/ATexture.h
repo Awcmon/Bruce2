@@ -1,8 +1,9 @@
 #pragma once
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include <string>
+#include <stdio.h>
 #include "AwcColor.h"
 
 class ATexture

@@ -3,17 +3,16 @@
 
 CSprite::CSprite()
 {
+	texture = new ATexture();
 	texture->load("materials/egg.png");
 }
 
 CSprite::~CSprite()
 {
+	texture->free();
 }
 
 void CSprite::render()
 {
-	if (texture != NULL)
-	{
-		texture->render(0, 0);
-	}
+	texture->render(0, 0);
 }

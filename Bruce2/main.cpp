@@ -10,6 +10,8 @@
 #include "AWindow.h"
 #include "Configor.h"
 #include "EntityFactory.h"
+#include "CSprite.h"
+#include "ATexture.h"
 
 int SCREEN_WIDTH = 640;
 int SCREEN_HEIGHT = 480;
@@ -54,6 +56,17 @@ int main(int argc, char* args[])
 	Gamestate = STATE_MENU;
 	EntityFactory ents;
 
+	
+	Entity* ent = new Entity();
+	Component* spriteComponent = new CSprite();
+	ent->addComponent(spriteComponent);
+	ents.Add(ent);
+
+	/* Texture Test
+	ATexture* egg = new ATexture();
+	egg->load("materials/egg.png");
+	*/
+
 	while (Gamestate != STATE_EXIT)
 	{
 		int start = SDL_GetTicks();
@@ -68,26 +81,15 @@ int main(int argc, char* args[])
 
 		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 		SDL_RenderClear(gRenderer);
-
-		//Render red filled quad
-		SDL_Rect fillRect = { SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
-		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00, 0x00, 0xFF);
-		SDL_RenderFillRect(gRenderer, &fillRect);
-
-		//Render green outlined quad
-		SDL_Rect outlineRect = { SCREEN_WIDTH / 6, SCREEN_HEIGHT / 6, SCREEN_WIDTH * 2 / 3, SCREEN_HEIGHT * 2 / 3 };
-		SDL_SetRenderDrawColor(gRenderer, 0x00, 0xFF, 0x00, 0xFF);
-		SDL_RenderDrawRect(gRenderer, &outlineRect);
-
-		//Draw blue horizontal line
-		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0xFF, 0xFF);
-		SDL_RenderDrawLine(gRenderer, 0, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT / 2);
-
-		//Draw vertical line of yellow dots
-		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0x00, 0xFF);
-		for (int i = 0; i < SCREEN_HEIGHT; i += 4)
+		
+		//Render all entity components
+		for (int i = 0; i < ents.GetAll().size(); i++)
 		{
-			SDL_RenderDrawPoint(gRenderer, SCREEN_WIDTH / 2, i);
+			Entity* curEnt = ents.GetAll()[i];
+			for (int k = 0; k < curEnt->components.size(); k++)
+			{
+				curEnt->components[k]->render();
+			}
 		}
 
 		//Update screen

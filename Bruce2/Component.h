@@ -10,7 +10,7 @@ public:
 
 	Component() 
 	{
-		printf("rip");
+		printf("New Component Spawned\n");
 	}
 
 	virtual ~Component() 

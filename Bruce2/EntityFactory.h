@@ -61,6 +61,12 @@ public:
 		return entities;
 	}
 
+	//Supposed to use Create to add stuff, but this is mostly for testing/debug.
+	void Add(Entity* _ent)
+	{
+		entities.push_back(_ent);
+	}
+
 private:
 	std::map<std::string, Entity> entRegister;
 	std::vector<Entity*> entities;
