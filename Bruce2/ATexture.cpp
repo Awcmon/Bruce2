@@ -68,6 +68,16 @@ SDL_Texture* ATexture::getTexture()
 	return mTexture;
 }
 
+int ATexture::getWidth()
+{
+	return width;
+}
+
+int ATexture::getHeight()
+{
+	return height;
+}
+
 void ATexture::setColor(Uint8 r, Uint8 g, Uint8 b)
 {
 	SDL_SetTextureColorMod(mTexture, r, g, b);

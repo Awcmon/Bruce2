@@ -21,11 +21,13 @@ class ATexture
 	void setBlendMode(SDL_BlendMode blendmode);
 	void setAlpha(Uint8 alpha);
 
+	int getWidth();
+	int getHeight();
+
 	void render(int x, int y, double angle = 0.0, SDL_Point* center = NULL, SDL_Rect* clip = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
+	private:
 	int width;
 	int height;
-
-	private:
 	SDL_Texture *mTexture;
 };

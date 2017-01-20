@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
+#include <map>
 
 #include "Globals.h"
 #include "AwcUtility.h"
@@ -12,9 +13,16 @@
 #include "EntityFactory.h"
 #include "CSprite.h"
 #include "ATexture.h"
+#include "ASurface.h"
 
-int SCREEN_WIDTH = 640;
-int SCREEN_HEIGHT = 480;
+int SCREEN_WIDTH = 1024;
+int SCREEN_HEIGHT = 768;
+int PPM = 64;
+Vector2D camPos;
+
+std::map<ATexture*, std::string> TextureMap;
+
+ASurface surface;
 
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
@@ -58,9 +66,11 @@ int main(int argc, char* args[])
 
 	
 	Entity* ent = new Entity();
-	Component* spriteComponent = new CSprite();
+	Component* spriteComponent = new CSprite("materials/egg.png", LAYER_FG1);
 	ent->addComponent(spriteComponent);
 	ents.Add(ent);
+
+	ATexture eggTexture("materials/egg.png");
 
 	/* Texture Test
 	ATexture* egg = new ATexture();
@@ -91,6 +101,12 @@ int main(int argc, char* args[])
 				curEnt->components[k]->render();
 			}
 		}
+
+		SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 0xFF);
+		surface.SetTexture(&eggTexture);
+		surface.DrawTexturedRect(Vector2D(0, 0), 420, 420);
+		surface.DrawTexturedRect(Vector2D(50, 50));
+//		surface.DrawFillQuad(Vector2D(0, 0), Vector2D(420, 420));
 
 		//Update screen
 		SDL_RenderPresent(gRenderer);
